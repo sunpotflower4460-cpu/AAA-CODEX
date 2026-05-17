@@ -64,6 +64,7 @@ No words have settled yet.
 ```
 余韻を保存しました
 Saved in stillness
+Write with stillness
 ```
 
 **保存ステータスの表示方針：**
@@ -125,7 +126,7 @@ zanshin.notes.v1
 | Markdown完全対応 | 本文入力のシンプルさを優先 |
 | 複雑なタグ管理 | 検索で代替 |
 | 共同編集 | 個人の余白を守るため不要 |
-| App Store申請 | Phase 8以降 |
+| App Store申請 | Phase 9以降 |
 | Cloudflareへの途中デプロイ | Phase 3 MVP完成後のみ |
 
 ---

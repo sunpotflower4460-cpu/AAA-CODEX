@@ -49,6 +49,19 @@ The goal is to make writing feel **quiet, spacious, and intentional**.
 
 ---
 
+## Hard No's In MVP (Do Not Add)
+
+- Login / accounts
+- Cloud sync (iCloud, Supabase, etc.)
+- AI features
+- Payments / subscriptions
+- Full Markdown support
+- Complex tag management
+- Collaboration
+- Cloudflare Pages deploys before MVP completion
+
+---
+
 ## Coding Direction (for Phase 3 and beyond)
 
 When implementation begins:
