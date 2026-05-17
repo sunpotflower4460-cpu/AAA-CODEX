@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-washi: #f7f1e5;
+  --color-paper: #fbf8f1;
+  --color-sumi: #1f1b18;
+  --color-ink-muted: #5f5750;
+  --color-gold: #c9a646;
+  --color-indigo: #243b53;
+  --color-vermilion: #b14a36;
+  --color-line: rgba(31, 27, 24, 0.12);
+  --color-shadow: rgba(31, 27, 24, 0.08);
+
+  color-scheme: light;
+  background: var(--color-washi);
+  color: var(--color-sumi);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--color-washi);
+}
+
+#root {
+  min-height: 100%;
+}
+
+.font-heading {
+  font-family:
+    'Hiragino Mincho ProN',
+    'Yu Mincho',
+    'Noto Serif JP',
+    'Noto Serif',
+    serif;
+}
+
+.font-body {
+  font-family:
+    'Hiragino Sans',
+    'Noto Sans JP',
+    system-ui,
+    sans-serif;
+}
+
+.safe-y {
+  padding-top: max(34px, env(safe-area-inset-top));
+  padding-bottom: max(34px, env(safe-area-inset-bottom));
+}
