@@ -1,0 +1,23 @@
+export const copy = {
+  appName: '残心',
+  appSubtitle: 'Zanshin Notes',
+  tagline: '書いたあとにも、心がそこに残るメモ帳。',
+  taglineEn: 'Write with stillness.',
+  emptyTitle: 'まだ、言葉は置かれていません。',
+  emptySubtitle: 'No words have settled yet.',
+  searchPlaceholder: '言葉を探す',
+  newNote: '新しい余白',
+  untitled: '無題の余白',
+  titlePlaceholder: '題、あるいは無題。',
+  bodyPlaceholder: 'ここに言葉を置いてください。',
+  saved: '余韻を保存しました',
+  savedEn: 'Saved in stillness',
+  back: '戻る',
+  favorite: 'お気に入り',
+  unfavorite: 'お気に入りを外す',
+  delete: '削除',
+  deleteConfirm: 'この言葉を手放しますか？\\nRelease this note?',
+  noResults: '見つかりませんでした。',
+  noResultsEn: 'No notes found.',
+} as const;
+

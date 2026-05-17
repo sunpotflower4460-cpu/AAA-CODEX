@@ -79,6 +79,41 @@
 
 ---
 
+## セットアップ / Setup
+
+```bash
+npm install
+```
+
+## 開発起動 / Dev
+
+```bash
+npm run dev
+```
+
+## ビルド / Build
+
+```bash
+npm run build
+```
+
+## Lint
+
+```bash
+npm run lint
+```
+
+---
+
+## Cloudflare Pages（MVP完成後のみ）
+
+Phase 3の途中ではデプロイしません。MVPが完成して `npm run build` が通ったあとに、必要なら以下で設定します。
+
+- Build command: `npm run build`
+- Build output directory: `dist`
+
+---
+
 ## ドキュメント
 
 | ファイル | 内容 |

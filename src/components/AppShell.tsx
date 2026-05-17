@@ -1,0 +1,16 @@
+import type { ReactNode } from 'react';
+
+type Props = {
+  children: ReactNode;
+};
+
+export function AppShell({ children }: Props) {
+  return (
+    <div className="min-h-screen bg-[color:var(--color-washi)] text-[color:var(--color-sumi)]">
+      <div className="safe-y mx-auto min-h-screen max-w-[720px] px-[21px] font-body">
+        {children}
+      </div>
+    </div>
+  );
+}
+
