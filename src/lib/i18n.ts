@@ -10,6 +10,8 @@ export const copy = {
   untitled: '無題の余白',
   titlePlaceholder: '題、あるいは無題。',
   bodyPlaceholder: 'ここに言葉を置いてください。',
+  saving: '静かに残しています',
+  savingEn: 'Saving quietly',
   saved: '余韻を保存しました',
   savedEn: 'Saved in stillness',
   back: '戻る',
@@ -20,4 +22,3 @@ export const copy = {
   noResults: '見つかりませんでした。',
   noResultsEn: 'No notes found.',
 } as const;
-

@@ -32,9 +32,12 @@ export default function App() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [query, setQuery] = useState('');
 
-  const persist = useCallback((next: Note[]) => {
-    setNotes(next);
-    saveNotes(next);
+  const persist = useCallback((updater: (prev: Note[]) => Note[]) => {
+    setNotes((prev) => {
+      const next = updater(prev);
+      saveNotes(next);
+      return next;
+    });
   }, []);
 
   const selectedNote = useMemo(() => {
@@ -57,26 +60,24 @@ export default function App() {
       isFavorite: false,
       locale: 'ja',
     };
-    persist([note, ...notes]);
+    persist((prev) => [note, ...prev]);
     setSelectedId(note.id);
-  }, [notes, persist]);
+  }, [persist]);
 
   const updateNote = useCallback(
     (id: string, patch: Pick<Note, 'title' | 'body' | 'isFavorite'>) => {
       const updatedAt = nowIso();
-      const next = notes.map((n) => (n.id === id ? { ...n, ...patch, updatedAt } : n));
-      persist(next);
+      persist((prev) => prev.map((n) => (n.id === id ? { ...n, ...patch, updatedAt } : n)));
     },
-    [notes, persist],
+    [persist],
   );
 
   const deleteNote = useCallback(
     (id: string) => {
-      const next = notes.filter((n) => n.id !== id);
-      persist(next);
+      persist((prev) => prev.filter((n) => n.id !== id));
       setSelectedId(null);
     },
-    [notes, persist],
+    [persist],
   );
 
   return (

@@ -49,9 +49,11 @@ export function NoteCard({ note, onOpen }: Props) {
             </p>
           )}
         </div>
-        <p className="pt-[2px] text-[13px] text-[color:var(--color-ink-muted)]">
-          {updated}
-        </p>
+        {body ? (
+          <p className="pt-[2px] text-[13px] text-[color:var(--color-ink-muted)]">
+            {updated}
+          </p>
+        ) : null}
       </div>
       <div className="mt-[13px] h-px w-full bg-[color:var(--color-line)] opacity-60 transition-opacity duration-300 group-hover:opacity-80" />
     </button>
