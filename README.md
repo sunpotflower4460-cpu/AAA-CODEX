@@ -66,6 +66,7 @@
 | **Phase 1** | README/docsに設計を入れる | しない |
 | **Phase 2** | 監査フェーズ（設計確認・微修正） | しない |
 | **Phase 3** | MVPまで一気に作る | MVP完成後のみ |
+| **Phase 4** | 調整・デバッグ・Cloudflare Pages準備/デプロイ | build成功後のみ |
 
 詳細は [docs/development-phases.md](docs/development-phases.md) を参照。
 
@@ -75,7 +76,8 @@
 
 - Phase 1ではデプロイしない
 - Phase 2でもデプロイしない
-- **Phase 3のMVP完成後のみ**、必要に応じてCloudflare Pagesへのデプロイ準備を行う
+- Phase 3の途中ではデプロイしない
+- **Phase 4（最終調整）で `npm run build` 成功後のみ**、Cloudflare Pagesへのデプロイ準備/デプロイを行う
 
 ---
 
@@ -105,9 +107,15 @@ npm run lint
 
 ---
 
-## Cloudflare Pages（MVP完成後のみ）
+## Phase 4（最終調整）
 
-Phase 3の途中ではデプロイしません。MVPが完成して `npm run build` が通ったあとに、必要なら以下で設定します。
+- Phase 4 レポート: [docs/final-polish-and-deploy-phase-4.md](docs/final-polish-and-deploy-phase-4.md)
+
+---
+
+## Cloudflare Pages
+
+`npm run build` が成功した状態で、Cloudflare Pagesにリポジトリを接続してデプロイします。
 
 - Build command: `npm run build`
 - Build output directory: `dist`
@@ -122,4 +130,5 @@ Phase 3の途中ではデプロイしません。MVPが完成して `npm run bui
 | [docs/design-system.md](docs/design-system.md) | UI/UXとデザインシステム |
 | [docs/mvp-spec.md](docs/mvp-spec.md) | MVP仕様 |
 | [docs/development-phases.md](docs/development-phases.md) | 開発フェーズ |
+| [docs/final-polish-and-deploy-phase-4.md](docs/final-polish-and-deploy-phase-4.md) | Phase 4 最終調整レポート |
 | [.github/copilot-instructions.md](.github/copilot-instructions.md) | Cloud Agent / Copilot向け作業ルール |

@@ -6,8 +6,9 @@
 |----------|------|-------------------|
 | Phase 1 | 設計整理 | しない |
 | Phase 2 | 監査 | しない |
-| Phase 3 | MVP実装 | MVP完成後のみ |
-| Phase 4〜 | 将来拡張 | 別途検討 |
+| Phase 3 | MVP実装 | しない（実装中は不可） |
+| Phase 4 | 最終調整・デバッグ・Cloudflare Pages | build成功後のみ |
+| Phase 5〜 | 将来拡張 | 別途検討 |
 
 ---
 
@@ -54,7 +55,7 @@ docs/development-phases.md
 
 ## Phase 2: 監査
 
-**ステータス：** 🟡 実施中
+**ステータス：** 🟢 完了
 
 ### 目的
 
@@ -62,7 +63,7 @@ docs/development-phases.md
 - MVP実装前の懸念点を洗い出す
 - 実装に入る前に設計を微修正する
 
-### 作成予定
+### 成果物
 
 ```
 docs/audit-phase-2.md
@@ -83,7 +84,7 @@ docs/audit-phase-2.md
 
 ## Phase 3: MVP実装
 
-**ステータス：** ⬜ 未着手
+**ステータス：** 🟢 完了
 
 ### 目的
 
@@ -91,7 +92,7 @@ docs/audit-phase-2.md
 - iPhoneで使えるUIにする
 - ローカル保存つきメモ帳として成立させる
 
-### 実装予定
+### 実装
 
 ```
 Vite + React + TypeScript + Tailwind CSS
@@ -132,7 +133,30 @@ src/
 
 ### Cloudflareデプロイ
 
-**MVP完成後のみ**
+**しない（実装中は不可）**
+
+---
+
+## Phase 4: 最終調整・デバッグ・Cloudflare Pages
+
+**ステータス：** 🟢 完了
+
+### 目的
+
+- 基本機能のデバッグ
+- UI/UXの微調整
+- build確認
+- Cloudflare Pagesへのデプロイ準備（またはデプロイ）
+
+### 成果物
+
+```
+docs/final-polish-and-deploy-phase-4.md
+```
+
+### Cloudflareデプロイ
+
+**build成功後のみ**
 
 ---
 
@@ -140,12 +164,12 @@ src/
 
 | フェーズ | 内容 |
 |----------|------|
-| Phase 4 | 多言語切り替え（ja / en） |
-| Phase 5 | 縦書きモード |
-| Phase 6 | 集中モード（UI最小化） |
-| Phase 7 | iCloud / Supabase同期 |
-| Phase 8 | CapacitorでiOS化 |
-| Phase 9 | App Store準備 |
+| Phase 5 | 多言語切り替え（ja / en） |
+| Phase 6 | 縦書きモード |
+| Phase 7 | 集中モード（UI最小化） |
+| Phase 8 | iCloud / Supabase同期 |
+| Phase 9 | CapacitorでiOS化 |
+| Phase 10 | App Store準備 |
 
 ---
 
@@ -153,5 +177,5 @@ src/
 
 1. 「間」「余白」「残心」の思想をUIに込め続ける
 2. 機能追加よりも体験の質を優先する
-3. Phase 3完了前にCloudflareへデプロイしない
+3. `npm run build` 成功前にCloudflareへデプロイしない
 4. 新機能追加は、既存の静けさを壊さないか確認してから行う
