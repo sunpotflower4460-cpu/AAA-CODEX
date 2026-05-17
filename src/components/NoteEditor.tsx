@@ -41,8 +41,14 @@ export function NoteEditor({ note, onBack, onUpdate, onDelete }: Props) {
     };
   }, []);
 
+  const effectiveStatus: SaveStatus = status === 'saving' && !isDirty ? 'idle' : status;
+
   const savedOpacity =
-    status === 'saving' ? 'opacity-60' : status === 'saved' ? 'opacity-100' : 'opacity-0';
+    effectiveStatus === 'saving'
+      ? 'opacity-60'
+      : effectiveStatus === 'saved'
+        ? 'opacity-100'
+        : 'opacity-0';
 
   const favoriteLabel = isFavorite ? copy.unfavorite : copy.favorite;
 
@@ -51,9 +57,12 @@ export function NoteEditor({ note, onBack, onUpdate, onDelete }: Props) {
     setStatus('saving');
   };
 
+  const statusText = effectiveStatus === 'saving' ? copy.saving : copy.saved;
+  const statusTextEn = effectiveStatus === 'saving' ? copy.savingEn : copy.savedEn;
+
   return (
     <div className="pb-[34px]">
-      <header className="sticky top-0 z-10 bg-[color:var(--color-washi)]/90 backdrop-blur-sm">
+      <header className="sticky top-[var(--safe-top,0px)] z-10 bg-[color:var(--color-washi)]/90 backdrop-blur-sm">
         <div className="flex items-center justify-between gap-[13px] border-b border-[color:var(--color-line)] py-[13px]">
           <button
             type="button"
@@ -67,8 +76,8 @@ export function NoteEditor({ note, onBack, onUpdate, onDelete }: Props) {
           <div
             className={`text-center text-[13px] text-[color:var(--color-ink-muted)] transition-opacity duration-500 ${savedOpacity}`}
           >
-            {copy.saved}
-            <span className="ml-[8px] opacity-70">{copy.savedEn}</span>
+            {statusText}
+            <span className="ml-[8px] opacity-70">{statusTextEn}</span>
           </div>
 
           <div className="flex items-center gap-[8px]">
