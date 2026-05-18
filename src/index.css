@@ -4,7 +4,7 @@
 
 :root {
   --color-washi: #f7f1e5;
-  --color-paper: #fbf8f1;
+  --color-paper: rgba(251, 248, 241, 0.92);
   --color-sumi: #1f1b18;
   --color-ink-muted: #5f5750;
   --color-gold: #c9a646;
@@ -60,4 +60,35 @@ body {
   --safe-bottom: max(34px, env(safe-area-inset-bottom));
   padding-top: var(--safe-top);
   padding-bottom: var(--safe-bottom);
+}
+
+.washi-bg {
+  background-color: var(--color-washi);
+  background-image:
+    radial-gradient(
+      closest-side at 78% 18%,
+      transparent 0%,
+      transparent 58%,
+      rgba(31, 27, 24, 0.03) 59%,
+      rgba(31, 27, 24, 0.03) 60%,
+      transparent 61%,
+      transparent 100%
+    ),
+    radial-gradient(900px 520px at 12% 5%, rgba(201, 166, 70, 0.08), transparent 62%),
+    radial-gradient(820px 520px at 92% 12%, rgba(36, 59, 83, 0.055), transparent 66%),
+    radial-gradient(980px 680px at 55% 92%, rgba(31, 27, 24, 0.04), transparent 70%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(31, 27, 24, 0.012) 0px,
+      rgba(31, 27, 24, 0.012) 1px,
+      transparent 1px,
+      transparent 9px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(31, 27, 24, 0.009) 0px,
+      rgba(31, 27, 24, 0.009) 1px,
+      transparent 1px,
+      transparent 7px
+    );
 }
