@@ -92,3 +92,15 @@ body {
       transparent 7px
     );
 }
+
+@keyframes zanshin-breathe {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.94);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+}
