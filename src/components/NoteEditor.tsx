@@ -61,23 +61,34 @@ export function NoteEditor({ note, onBack, onUpdate, onDelete }: Props) {
   const statusTextEn = effectiveStatus === 'saving' ? copy.savingEn : copy.savedEn;
 
   return (
-    <div className="pb-[34px]">
-      <header className="sticky top-[var(--safe-top,0px)] z-10 bg-[color:var(--color-washi)]/90 backdrop-blur-sm">
+    <div className="pb-[89px]">
+      <header className="sticky top-[var(--safe-top,0px)] z-10 bg-[color:var(--color-washi)]/75 backdrop-blur-md shadow-[0_18px_36px_-24px_var(--color-shadow)]">
         <div className="flex items-center justify-between gap-[13px] border-b border-[color:var(--color-line)] py-[13px]">
           <button
             type="button"
             onClick={onBack}
             aria-label={copy.back}
-            className="inline-flex h-[44px] items-center justify-center rounded-[13px] px-[13px] text-[15px] text-[color:var(--color-sumi)] transition-colors duration-300 hover:bg-[color:var(--color-paper)] focus:outline-none focus:ring-2 focus:ring-[color:var(--color-indigo)]/20"
+            className="inline-flex h-[44px] items-center justify-center rounded-[13px] px-[13px] text-[15px] text-[color:var(--color-sumi)] transition-[transform,background-color] duration-300 hover:bg-[color:var(--color-paper)] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[color:var(--color-indigo)]/20"
           >
             ← {copy.back}
           </button>
 
           <div
-            className={`text-center text-[13px] text-[color:var(--color-ink-muted)] transition-opacity duration-500 ${savedOpacity}`}
+            className={`flex items-center justify-center gap-[8px] text-center text-[13px] text-[color:var(--color-ink-muted)] transition-opacity duration-500 ${savedOpacity}`}
           >
-            {statusText}
-            <span className="ml-[8px] opacity-70">{statusTextEn}</span>
+            {effectiveStatus === 'saving' ? (
+              <span
+                aria-hidden="true"
+                className="h-[6px] w-[6px] rounded-full bg-[color:var(--color-indigo)] animate-[zanshin-breathe_2.4s_ease-in-out_infinite]"
+              />
+            ) : effectiveStatus === 'saved' ? (
+              <span
+                aria-hidden="true"
+                className="h-[6px] w-[6px] rounded-full bg-[color:var(--color-gold)]"
+              />
+            ) : null}
+            <span>{statusText}</span>
+            <span className="opacity-70">{statusTextEn}</span>
           </div>
 
           <div className="flex items-center gap-[8px]">
@@ -88,13 +99,10 @@ export function NoteEditor({ note, onBack, onUpdate, onDelete }: Props) {
                 setIsFavorite((v) => !v);
               }}
               aria-label={favoriteLabel}
-              className="inline-flex h-[44px] w-[44px] items-center justify-center rounded-[13px] border border-[color:var(--color-line)] bg-[color:var(--color-paper)] text-[17px] text-[color:var(--color-sumi)] transition-colors duration-300 hover:bg-[color:var(--color-washi)] focus:outline-none focus:ring-2 focus:ring-[color:var(--color-indigo)]/20"
+              className="inline-flex h-[44px] w-[44px] items-center justify-center rounded-[13px] border border-[color:var(--color-line)] bg-[color:var(--color-paper)] text-[17px] text-[color:var(--color-sumi)] transition-[transform,background-color] duration-300 hover:bg-[color:var(--color-washi)] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[color:var(--color-indigo)]/20"
             >
-              <span
-                aria-hidden="true"
-                className={isFavorite ? 'text-[color:var(--color-gold)]' : ''}
-              >
-                ☆
+              <span aria-hidden="true" className={isFavorite ? 'text-[color:var(--color-gold)]' : ''}>
+                {isFavorite ? '★' : '☆'}
               </span>
             </button>
 
@@ -104,7 +112,7 @@ export function NoteEditor({ note, onBack, onUpdate, onDelete }: Props) {
                 if (window.confirm(copy.deleteConfirm)) onDelete(note.id);
               }}
               aria-label={copy.delete}
-              className="inline-flex h-[44px] w-[44px] items-center justify-center rounded-[13px] border border-[color:var(--color-line)] bg-[color:var(--color-paper)] text-[17px] text-[color:var(--color-vermilion)] transition-colors duration-300 hover:bg-[color:var(--color-washi)] focus:outline-none focus:ring-2 focus:ring-[color:var(--color-vermilion)]/20"
+              className="inline-flex h-[44px] w-[44px] items-center justify-center rounded-[13px] border border-[color:var(--color-line)] bg-[color:var(--color-paper)] text-[17px] text-[color:var(--color-vermilion)] transition-[transform,background-color] duration-300 hover:bg-[color:var(--color-washi)] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[color:var(--color-vermilion)]/20"
             >
               <span aria-hidden="true">⌫</span>
             </button>
@@ -139,7 +147,7 @@ export function NoteEditor({ note, onBack, onUpdate, onDelete }: Props) {
             }}
             placeholder={copy.bodyPlaceholder}
             aria-label={copy.bodyPlaceholder}
-            className="min-h-[55svh] w-full resize-none bg-transparent text-[16px] leading-[1.618] text-[color:var(--color-sumi)] placeholder:text-[color:var(--color-ink-muted)] focus:outline-none"
+            className="min-h-[62svh] w-full resize-none bg-transparent text-[16px] leading-[1.75] text-[color:var(--color-sumi)] placeholder:text-[color:var(--color-ink-muted)] focus:outline-none"
           />
         </label>
       </main>

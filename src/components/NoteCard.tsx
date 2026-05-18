@@ -23,9 +23,13 @@ export function NoteCard({ note, onOpen }: Props) {
     <button
       type="button"
       onClick={() => onOpen(note.id)}
-      className="group w-full rounded-[13px] border border-[color:var(--color-line)] bg-[color:var(--color-paper)] px-[21px] py-[21px] text-left shadow-[0_12px_24px_-12px_var(--color-shadow)] transition-colors duration-300 hover:border-[color:var(--color-line)] focus:outline-none focus:ring-2 focus:ring-[color:var(--color-indigo)]/20"
+      className="group relative w-full overflow-hidden rounded-[13px] border border-[color:var(--color-line)] bg-[color:var(--color-paper)] px-[21px] py-[21px] text-left shadow-[0_12px_24px_-16px_var(--color-shadow)] backdrop-blur-sm transition-[transform,border-color,box-shadow] duration-300 hover:border-[color:var(--color-line)] hover:shadow-[0_18px_36px_-20px_var(--color-shadow)] active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-[color:var(--color-indigo)]/20"
       aria-label={`${title}`}
     >
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute left-0 top-0 h-full w-[2px] bg-[linear-gradient(to_bottom,transparent,rgba(36,59,83,0.22),transparent)] opacity-70"
+      />
       <div className="flex items-start justify-between gap-[13px]">
         <div className="min-w-0">
           <div className="flex items-baseline gap-[8px]">
@@ -34,7 +38,7 @@ export function NoteCard({ note, onOpen }: Props) {
             </h3>
             {note.isFavorite ? (
               <span
-                className="inline-flex h-[13px] w-[13px] shrink-0 rounded-full bg-[color:var(--color-gold)]"
+                className="inline-flex h-[10px] w-[10px] shrink-0 rotate-45 rounded-[2px] bg-[color:var(--color-gold)] shadow-[0_6px_16px_-10px_var(--color-shadow)]"
                 aria-label={copy.favorite}
               />
             ) : null}
@@ -55,7 +59,7 @@ export function NoteCard({ note, onOpen }: Props) {
           </p>
         ) : null}
       </div>
-      <div className="mt-[13px] h-px w-full bg-[color:var(--color-line)] opacity-60 transition-opacity duration-300 group-hover:opacity-80" />
+      <div className="mt-[13px] h-px w-full bg-[color:var(--color-line)] opacity-40 transition-opacity duration-300 group-hover:opacity-70" />
     </button>
   );
 }
