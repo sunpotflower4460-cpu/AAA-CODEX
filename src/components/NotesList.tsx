@@ -23,18 +23,18 @@ export function NotesList({
   const hasNotes = notes.length > 0;
 
   return (
-    <div className="relative pb-[89px]">
-      <header className="pt-[13px]">
+    <div className="relative pb-[144px]">
+      <header className="pt-[21px]">
         <div className="flex items-start justify-between gap-[13px]">
           <div>
-            <h1 className="font-heading text-[21px] font-medium tracking-tight text-[color:var(--color-sumi)]">
+            <h1 className="font-heading text-[34px] font-medium leading-[1.1] tracking-tight text-[color:var(--color-sumi)]">
               {copy.appName}
             </h1>
             <p className="mt-[4px] text-[13px] text-[color:var(--color-ink-muted)]">
               {copy.appSubtitle}
             </p>
           </div>
-          <ZanshinMark className="mt-[4px] h-[34px] w-[34px] text-[color:var(--color-ink-muted)]" />
+          <ZanshinMark className="mt-[8px] h-[34px] w-[34px] text-[color:var(--color-ink-muted)] opacity-80" />
         </div>
         <p className="mt-[13px] text-[15px] leading-[1.618] text-[color:var(--color-ink-muted)]">
           {copy.tagline}
@@ -67,15 +67,18 @@ export function NotesList({
         )}
       </main>
 
-      <button
-        type="button"
-        onClick={onCreateNote}
-        aria-label={copy.newNote}
-        className="fixed bottom-[max(21px,env(safe-area-inset-bottom))] right-[21px] z-10 flex h-[55px] w-[55px] items-center justify-center rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-paper)] text-[21px] text-[color:var(--color-sumi)] shadow-[0_18px_36px_-18px_var(--color-shadow)] transition-transform duration-300 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[color:var(--color-indigo)]/20"
-      >
-        <span aria-hidden="true">＋</span>
-      </button>
+      <div className="pointer-events-none fixed inset-x-0 bottom-0 z-10">
+        <div className="mx-auto flex max-w-[720px] justify-end px-[21px] pb-[max(21px,env(safe-area-inset-bottom))]">
+          <button
+            type="button"
+            onClick={onCreateNote}
+            aria-label={copy.newNote}
+            className="pointer-events-auto flex h-[55px] w-[55px] items-center justify-center rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-paper)] text-[21px] text-[color:var(--color-sumi)] shadow-[0_18px_36px_-18px_var(--color-shadow)] transition-transform duration-300 active:scale-[0.96] focus:outline-none focus:ring-2 focus:ring-[color:var(--color-indigo)]/20"
+          >
+            <span aria-hidden="true">＋</span>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
-
